@@ -1,5 +1,7 @@
 import  { useState } from 'react';
 import { useInView } from 'react-intersection-observer';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 
 // Define type for date
 type DateType = Date | null;
@@ -12,6 +14,7 @@ const CalendarSection = () => {
   
   const [selectedDate, setSelectedDate] = useState<DateType>(null);
   const [currentMonth, setCurrentMonth] = useState<Date>(new Date(2025, 0)); // January 2025
+  const [messageContent, setMessageContent] = useState<string>('');
   
   // Define occupied dates (formatted as YYYY-MM-DD)
   const occupiedDates: string[] = ['2025-01-28', '2025-01-29', '2025-02-04'];
@@ -81,21 +84,20 @@ const CalendarSection = () => {
   
   // Days of the week
   const weekdays: string[] = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-  const editorTools = [
-    { id: 'text-size', icon: 'Aa' },
-    { id: 'color', icon: '🎨' },
-    { id: 'italic', icon: 'I' },
-    { id: 'bold', icon: 'B' },
-    { id: 'underline', icon: 'U' },
-    { id: 'strikethrough', icon: 'S' },
-    { id: 'align-left', icon: '≡' },
-    { id: 'align-center', icon: '≡' },
-    { id: 'align-right', icon: '≡' },
-    { id: 'bullets', icon: '•' },
-    { id: 'numbering', icon: '1.' },
-    { id: 'indent', icon: '⇥' },
-    { id: 'image', icon: '🖼' }
-  ];
+  
+  // React Quill modules configuration
+  const modules = {
+    toolbar: [
+      [{ 'size': ['10px', '12px', '14px', '16px', '18px', '20px', '24px', '28px', '32px'] }],
+      ['bold', 'italic', 'underline', 'strike'],
+      [{ 'header': 1 }, { 'header': 2 }],
+      [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+      [{ 'indent': '-1' }, { 'indent': '+1' }],
+      [{ 'color': [] }, { 'background': [] }],
+      ['link', 'image'],
+      ['clean']
+    ],
+  };
 
   return (
     <section ref={ref} className="py-16 bg-gray-50">
@@ -106,13 +108,13 @@ const CalendarSection = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-3 text-orange-500">NOS ACTIVITÉS</h2>
         </div>
         
-        <div className="bg-white rounded-lg shadow-md p-6 ">
-          <div className="flex justify-between items-center mb-6">
+        <div className="rounded-[24px] border border-[rgba(86,44,44,0.30)] bg-white shadow-[0px_0px_30px_0px_rgba(242,84,45,0.10)] p-6">
+          <div className="flex justify-center gap-4 items-center mb-6">
             <button 
               onClick={prevMonth}
               className="text-gray-600 hover:text-orange-500 focus:outline-none"
             >
-              &lt; Prev
+              &lt; 
             </button>
             
             <h3 className="text-xl font-medium">
@@ -123,7 +125,7 @@ const CalendarSection = () => {
               onClick={nextMonth}
               className="text-gray-600 hover:text-orange-500 focus:outline-none"
             >
-              Next &gt;
+               &gt;
             </button>
           </div>
           
@@ -192,30 +194,25 @@ const CalendarSection = () => {
           <div className="mb-6 flex items-start">
             <label className="text-gray-700 font-medium w-24 pt-2">Message:</label>
             <div className="flex-1 rounded-[16px] border border-[rgba(86,44,44,0.30)] bg-white shadow-[0px_0px_30px_0px_rgba(242,84,45,0.10)] overflow-hidden">
-              <div className="flex flex-wrap gap-1 px-2 py-1 border-b border-gray-200 bg-gray-50">
-                {editorTools.map((tool) => (
-                  <button 
-                    key={tool.id} 
-                    className="w-6 h-6 flex items-center justify-center text-gray-500 hover:bg-gray-200 rounded"
-                  >
-                    {tool.icon}
-                  </button>
-                ))}
-              </div>
-              
-              <div className="p-4">
-                <h6 className="text-lg font-bold mb-2 text-gray-800">Heading 6</h6>
-                <p className="text-gray-700 text-sm">
-                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's 
-                  standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
-                </p>
-              </div>
+              <ReactQuill
+                value={messageContent}
+                onChange={setMessageContent}
+                modules={modules}
+                className="rounded-[16px]"
+                placeholder="Écrivez votre message ici..."
+              />
             </div>
           </div>
           
-          <div className="flex justify-between items-center mt-8">
-            <div className="flex items-center">
+          <div className="mb-6 flex items-center">
+            <label className="text-gray-700 font-medium w-24">Fichier:</label>
+            <div className="flex-1 items-center">
               <label className="flex items-center text-gray-700 cursor-pointer">
+                <input
+                  type="file"
+                  accept=".pdf"
+                  className="hidden"
+                />
                 <svg width="20" height="20" viewBox="0 0 24 24" className="text-blue-500 mr-2" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48" />
                 </svg>
@@ -223,16 +220,17 @@ const CalendarSection = () => {
                 <span className="text-gray-400 ml-2">(Fichiers pdf uniquement)</span>
               </label>
             </div>
-            
+          </div>
+          
+          <div className="flex justify-end mt-8">
+         
             <div className="flex gap-3">
               <button className="px-6 py-2 border border-[rgba(86,44,44,0.30)] rounded-[33px] hover:bg-gray-100 text-gray-700">
                 Clear All
               </button>
               <button className="px-6 py-2 bg-orange-500 text-white rounded-[33px] hover:bg-orange-600 flex items-center border border-[rgba(86,44,44,0.30)]">
                 Envoyer
-                <svg width="16" height="16" viewBox="0 0 24 24" className="ml-2" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
-                </svg>
+                <img src="/public/icons/send.svg" alt="send" />
               </button>
             </div>
           </div>

@@ -73,8 +73,8 @@ const Header: React.FC = () => {
             <Link to={getLangPath('/hunting')} className="text-white hover:text-primary transition-colors">
               <img src="/public/icons/Crosshair.svg" alt="Hunting" className="h-5 w-5" />
             </Link>
-            <Link to={getLangPath('/contact')} className="text-white hover:text-primary transition-colors flex justify-center items-center gap-2 h-[40px] px-4 py-2.5 rounded-[100px] bg-[#F2542D]">
-              <span className="hidden lg:inline-block text-white">
+            <Link to={getLangPath('/contact')} className="text-white hover:text-primary transition-colors flex justify-center items-center gap-2 h-[40px] px-4 py-2.5 rounded-[100px] bg-[#F2542D] group">
+              <span className="hidden lg:group-hover:inline-block text-white transition-all duration-300 opacity-0 group-hover:opacity-100 transform group-hover:scale-105">
                 {currentLanguage === 'en' ? 'Contact Us' : 'Contactez-nous'}
               </span>
               <img src="/public/icons/ArrowUpRight.svg" alt="Arrow" className="h-5 w-5" />
