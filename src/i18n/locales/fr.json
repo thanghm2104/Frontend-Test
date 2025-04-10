@@ -1,0 +1,24 @@
+{
+  "header": {
+    "home": "Accueil",
+    "features": "Fonctionnalités",
+    "pricing": "Tarification",
+    "contact": "Contact",
+    "signUp": "S'inscrire"
+  },
+  "homepage": {
+    "welcome": "Bienvenue sur notre page d'accueil",
+    "feature1": {
+      "title": "Fonctionnalité 1",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    "feature2": {
+      "title": "Fonctionnalité 2",
+      "description": "Praesent commodo cursus magna, vel scelerisque nisl."
+    },
+    "feature3": {
+      "title": "Fonctionnalité 3",
+      "description": "Aenean lacinia bibendum nulla sed consectetur."
+    }
+  }
+} 

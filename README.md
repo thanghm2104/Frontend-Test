@@ -1,3 +1,49 @@
+# Landing Page Project
+
+Modern landing page project built with Vite, React, TypeScript, and Tailwind CSS.
+
+## Technologies Used
+
+- [Vite](https://vitejs.dev/) - Fast build tool and dev server
+- [React](https://reactjs.org/) - UI library
+- [TypeScript](https://www.typescriptlang.org/) - Type safety
+- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
+- [i18next](https://www.i18next.com/) - Internationalization framework (English/French)
+
+## Project Structure
+
+```
+src/
+├── assets/        # Static assets (images, fonts, etc.)
+├── components/    # Reusable UI components
+├── hooks/         # Custom React hooks
+├── i18n/          # Internationalization setup and translations
+├── pages/         # Application pages
+├── types/         # TypeScript type definitions
+└── utils/         # Utility functions
+```
+
+## Getting Started
+
+1. Install dependencies:
+```bash
+npm install
+```
+
+2. Start the development server:
+```bash
+npm run dev
+```
+
+3. Build for production:
+```bash
+npm run build
+```
+
+## Internationalization
+
+The project supports English and French languages. Use the language switcher in the UI to toggle between them.
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

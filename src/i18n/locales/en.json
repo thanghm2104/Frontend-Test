@@ -1,0 +1,24 @@
+{
+  "header": {
+    "home": "Home",
+    "features": "Features",
+    "pricing": "Pricing",
+    "contact": "Contact",
+    "signUp": "Sign Up"
+  },
+  "homepage": {
+    "welcome": "Welcome to our Landing Page",
+    "feature1": {
+      "title": "Feature 1",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    "feature2": {
+      "title": "Feature 2",
+      "description": "Praesent commodo cursus magna, vel scelerisque nisl."
+    },
+    "feature3": {
+      "title": "Feature 3",
+      "description": "Aenean lacinia bibendum nulla sed consectetur."
+    }
+  }
+} 
