@@ -16,12 +16,12 @@ const HeroContent: React.FC<HeroContentProps> = () => {
   
   return (
     <div className="container mx-auto px-4 text-center text-white">
-      <div className="flex justify-center items-center gap-[320px] mt-16">
+      <div className="flex justify-center items-center border-t-[1px] border-white-500 ">
         {bannerMenuItems.map((item: string, index: number) => (
           <Link 
             key={index}
             to={`/${currentLanguage}/${item.toLowerCase().replace(/\s+/g, '-')}`} 
-            className="text-white"
+            className="text-white border-t-[2px] border-transparent hover:border-white flex-1 pt-4"
           >
             <div className="text-center">
               {index === 0 && (
@@ -31,9 +31,9 @@ const HeroContent: React.FC<HeroContentProps> = () => {
                 <img src="/public/icons/Fishing.svg" alt="Fishing" className="w-7 h-7 mx-auto mb-2" />
               )}
               {index === 2 && (
-              <img src="/public/icons/Crosshair.svg" alt="Hunting" className="w-7 h-7 mx-auto mb-2" />
+                <img src="/public/icons/Crosshair.svg" alt="Hunting" className="w-7 h-7 mx-auto mb-2" />
               )}
-              <span className="text-sm md:hidden">{item}</span>
+              <span className="text-lg font-[600] opacity-0 translate-y-4 transition-transform duration-300 group-hover:opacity-100 group-hover:translate-y-0">{item}</span>
             </div>
           </Link>
         ))}
