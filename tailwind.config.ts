@@ -6,6 +6,10 @@ const config: Config = {
     './src/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
+    fontFamily: {
+      sans: ['Poppins', 'sans-serif'],
+      serif: ['Georgia', 'serif'],
+    },
     screens: {
       'sm': '375px',    // mobile
       'md': '768px',    // tablet vertical
@@ -17,18 +21,19 @@ const config: Config = {
       colors: {
         primary: {
           light: '#4da8ff',
-          DEFAULT: '#2563eb',
-          dark: '#1e40af',
+          DEFAULT: '#F2542D',
+          dark: '#d43819',
         },
         secondary: {
           light: '#f3f4f6',
           DEFAULT: '#9ca3af',
           dark: '#4b5563',
         },
-      },
-      fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-        heading: ['Poppins', 'sans-serif'],
+        cookmaster: {
+          red: '#F2542D',
+          brown: '#562C2C',
+          lightGray: '#BBB',
+        },
       },
       spacing: {
         '128': '32rem',

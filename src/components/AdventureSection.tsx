@@ -67,7 +67,7 @@ const AdventureSection: React.FC = () => {
   const adventures: Adventure[] = adventureItems as Adventure[] || sampleAdventures;
   
   return (
-    <section ref={ref} className="py-16 md:py-24 bg-gray-50">
+    <section ref={ref} className="py-16 md:py-24 ">
       <div className="max-w-[1240px] mx-auto px-4">
         <div className={`text-center mb-12 md:mb-16 transition-all duration-700 transform ${
           inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
@@ -85,11 +85,11 @@ const AdventureSection: React.FC = () => {
         </div>
 
         {/* Adventure Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[24px]">
           {adventures.map((adventure: Adventure, index: number) => (
             <div 
               key={adventure.id}
-              className={`bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-700 transform ${index==1 ?"h-fit":""} ${
+              className={`overflow-hidden transition-all duration-700 transform ${index==1 ?"h-fit":""} ${
                 inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
               style={{ 
@@ -101,23 +101,36 @@ const AdventureSection: React.FC = () => {
                 <img 
                   src={`/public/images/adventure${index+1}.png`} 
                   alt={adventure.title}
-                  className="w-full h-64 object-cover transition-transform duration-500 hover:scale-105"
+                  className="w-[397px] h-[397px] object-cover rounded-[8px] transition-transform duration-500 hover:scale-105"
                 />
-                <div className="absolute top-4 left-4 bg-primary text-white text-sm py-1 px-3 rounded-full">
-                  {adventure.tag}
-                </div>
+
               </div>
-              <div className="p-6">
-                <h3 className="text-xl md:text-2xl font-bold mb-3 text-gray-800">{adventure.title}</h3>
-                <p className="text-gray-600 mb-4">{adventure.description}</p>
+              <div className="p-6 pl-0 pr-0">
+              <div className="text-[#F2542D] font-['Poppins'] text-[20px] font-normal font-medium leading-normal">
+                  {adventure.tag}
+              </div>
+                <h3 className="text-[var(--3, #562C2C)] font-['Poppins'] text-[28px] font-normal font-medium leading-[32px] mb-3">{adventure.title}</h3>
+                <p className="overflow-hidden text-ellipsis text-[rgba(86,44,44,0.80)] mb-4" style={{
+                  display: '-webkit-box',
+                  width: '100%',
+                  WebkitBoxOrient: 'vertical',
+                  WebkitLineClamp: 2,
+                  flexShrink: 0,
+                  alignSelf: 'stretch',
+                  lineHeight: '24px',
+                  fontFamily: 'Poppins',
+                  fontSize: '18px',
+                  fontWeight: 400,
+                  letterSpacing: '-0.18px'
+                }}>
+                  {adventure.description}
+                </p>
                 <a 
                   href={adventure.link}
-                  className="inline-flex items-center text-primary font-medium hover:text-primary-dark transition-colors"
+                  className="text-[#562C2C] inline-flex items-center justify-center  font-medium hover:text-primary-dark transition-colors w-[249px] h-[44px] rounded-[333px] border border-[rgba(86, 44, 44, 0.30)]"
                 >
-                  {adventure.cta || (currentLanguage === 'en' ? 'Explore More' : 'Explorer Plus')}
-                  <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                  </svg>
+                  {adventure.cta}
+                  <img src="/public/icons/ArrowUpRightAdventure.svg" alt="Arrow" className="h-5 w-5" />
                 </a>
               </div>
             </div>

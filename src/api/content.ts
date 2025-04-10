@@ -227,6 +227,7 @@ function transformApiResponse(apiData: ApiData): PageContent {
         description: item.description || '',
         image: `/public/images/adventure${index + 1}.png`,
         tag: item.tagline || '',
+        cta: item.cta || 'Learn More',
         link: `/${apiData.language}/${(item.category || '').toLowerCase().replace(/\s+/g, '-')}`
       }))
     },

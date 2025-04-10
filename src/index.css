@@ -1,14 +1,26 @@
+/* Import Poppins font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* Custom styles below this line */
 body {
-  @apply bg-white text-gray-900 min-h-screen;
+  @apply bg-white text-gray-900 min-h-screen font-sans;
 }
 
 @layer components {
   .container-custom {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
+}
+
+/* CookMaster specific styles */
+.text-cookmaster-title {
+  @apply text-cookmaster-red font-semibold uppercase;
+}
+
+.text-cookmaster-subtitle {
+  @apply text-cookmaster-brown font-normal;
 }
