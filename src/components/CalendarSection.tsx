@@ -9,8 +9,19 @@ interface DayProps {
   isOccupied: boolean;
 }
 
+interface CalendarContent {
+  title: string;
+  subtitle?: string;
+  occupiedDates: string[];
+  months: { name: string; year: number; }[];
+  occupiedText?: string;
+  monthNames?: string[];
+  weekDays?: string[];
+}
+
 const Day: React.FC<DayProps> = ({ day, month, year, isOccupied }) => {
   const [showTooltip, setShowTooltip] = React.useState(false);
+  const { pageContent } = useLanguage();
   
   if (day === 0) {
     return <div className="h-10 md:h-12"></div>;
@@ -39,7 +50,7 @@ const Day: React.FC<DayProps> = ({ day, month, year, isOccupied }) => {
       
       {showTooltip && isOccupied && (
         <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-white shadow-lg rounded-md p-2 text-sm z-10 w-max">
-          <div className="font-medium text-red-500">Occupé</div>
+          <div className="font-medium text-red-500">{(pageContent?.calendar as CalendarContent)?.occupiedText || 'Occupé'}</div>
           <div className="text-gray-600">{dateString}</div>
           <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 rotate-45 w-2 h-2 bg-white"></div>
         </div>
@@ -55,9 +66,14 @@ interface MonthProps {
 }
 
 const Month: React.FC<MonthProps> = ({ name, year, occupiedDates }) => {
+  const { pageContent } = useLanguage();
+  
   // Get month number from name (January = 1, February = 2, etc.)
   const getMonthNumber = (monthName: string): number => {
-    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    const months = (pageContent?.calendar as CalendarContent)?.monthNames || [
+      "January", "February", "March", "April", "May", "June", 
+      "July", "August", "September", "October", "November", "December"
+    ];
     return months.indexOf(monthName) + 1;
   };
 
@@ -85,12 +101,14 @@ const Month: React.FC<MonthProps> = ({ name, year, occupiedDates }) => {
     return occupiedDates.includes(dateString);
   };
 
+  const weekDays = (pageContent?.calendar as CalendarContent)?.weekDays || ['D', 'L', 'M', 'M', 'J', 'V', 'S'];
+
   return (
     <div className="bg-white p-6 rounded-lg shadow-md">
       <h3 className="text-xl font-semibold mb-4 text-center">{name} {year}</h3>
       
       <div className="grid grid-cols-7 gap-1 mb-2">
-        {['D', 'L', 'M', 'M', 'J', 'V', 'S'].map((day, index) => (
+        {weekDays.map((day: string, index: number) => (
           <div key={index} className="text-center font-medium text-gray-500">{day}</div>
         ))}
       </div>
@@ -117,7 +135,7 @@ const CalendarSection: React.FC = () => {
     threshold: 0.1,
   });
 
-  if (!pageContent) {
+  if (!pageContent?.calendar) {
     return <div className="py-20"></div>;
   }
 
@@ -154,4 +172,4 @@ const CalendarSection: React.FC = () => {
   );
 };
 
-export default CalendarSection; 
+export default CalendarSection;

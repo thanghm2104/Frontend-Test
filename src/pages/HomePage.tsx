@@ -2,8 +2,11 @@ import React from 'react';
 import Header from '../components/Header';
 import HeroSection from '../components/HeroSection';
 import AdventureSection from '../components/AdventureSection';
+import InteractiveMap from '../components/InteractiveMap';
 import useLanguage from '../hooks/useLanguage';
 import useRouteLanguage from '../hooks/useRouteLanguage';
+import Footer from '../components/Footer';
+import CalendarSection from '@/components/CalendarSection';
 
 const HomePage: React.FC = () => {
   // Get language from route and synchronize it
@@ -44,6 +47,9 @@ const HomePage: React.FC = () => {
       <Header />
       <HeroSection />
       <AdventureSection />
+      <InteractiveMap />
+      <CalendarSection />
+      <Footer />
     </div>
   );
 };
