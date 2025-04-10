@@ -7,6 +7,7 @@ import useLanguage from '../hooks/useLanguage';
 import useRouteLanguage from '../hooks/useRouteLanguage';
 import Footer from '../components/Footer';
 import CalendarSection from '@/components/CalendarSection';
+import ContactSection from '@/components/ContactSection';
 
 const HomePage: React.FC = () => {
   // Get language from route and synchronize it
