@@ -1,21 +1,28 @@
-import { useTranslation } from 'react-i18next';
+import { useLanguageContext } from '../context/LanguageContext';
 
 type LanguageCode = 'en' | 'fr';
 
 const useLanguage = () => {
-  const { i18n } = useTranslation();
+  const { 
+    currentLanguage, 
+    changeLanguage: contextChangeLanguage, 
+    pageContent, 
+    isLoading, 
+    error 
+  } = useLanguageContext();
 
   const changeLanguage = (languageCode: LanguageCode) => {
-    i18n.changeLanguage(languageCode);
+    contextChangeLanguage(languageCode);
   };
-
-  const currentLanguage = i18n.language as LanguageCode;
 
   return {
     currentLanguage,
     changeLanguage,
     isEnglish: currentLanguage === 'en',
     isFrench: currentLanguage === 'fr',
+    pageContent,
+    isLoading,
+    error
   };
 };
 

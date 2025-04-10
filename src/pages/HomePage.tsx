@@ -1,47 +1,49 @@
-import React from 'react'
-import { useTranslation } from 'react-i18next'
-import Header from '../components/Header'
-import useLanguage from '../hooks/useLanguage'
+import React from 'react';
+import Header from '../components/Header';
+import HeroSection from '../components/HeroSection';
+import useLanguage from '../hooks/useLanguage';
+import useRouteLanguage from '../hooks/useRouteLanguage';
 
 const HomePage: React.FC = () => {
-  const { t } = useTranslation()
-  const { changeLanguage, currentLanguage } = useLanguage()
+  // Get language from route and synchronize it
+  useRouteLanguage(); // This hook has side effects, so we call it even if we don't use the return value
+  const { isLoading, error, pageContent } = useLanguage();
+
+  if (isLoading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen bg-gray-900">
+        <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-primary"></div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="flex items-center justify-center min-h-screen text-center px-4 bg-gray-900">
+        <div className="bg-gray-800 text-white p-6 rounded-lg max-w-md">
+          <h2 className="text-xl font-bold mb-2">Error Loading Content</h2>
+          <p>{error}</p>
+          <button 
+            onClick={() => window.location.reload()} 
+            className="mt-4 bg-primary text-white px-4 py-2 rounded-md hover:bg-primary-dark transition-colors"
+          >
+            Try Again
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  if (!pageContent) {
+    return null;
+  }
   
   return (
-    <div>
+    <div className="min-h-screen bg-gray-900">
       <Header />
-      <main>
-        <div className="container-custom py-12">
-          <div className="mb-6 text-right">
-            <button 
-              onClick={() => changeLanguage(currentLanguage === 'en' ? 'fr' : 'en')}
-              className="px-4 py-2 bg-gray-100 rounded-md text-sm"
-            >
-              {currentLanguage === 'en' ? 'Français' : 'English'}
-            </button>
-          </div>
-          
-          <h1 className="text-3xl font-bold text-center mb-8">
-            {t('homepage.welcome')}
-          </h1>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h2 className="text-xl font-semibold mb-3">{t('homepage.feature1.title')}</h2>
-              <p className="text-gray-600">{t('homepage.feature1.description')}</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h2 className="text-xl font-semibold mb-3">{t('homepage.feature2.title')}</h2>
-              <p className="text-gray-600">{t('homepage.feature2.description')}</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h2 className="text-xl font-semibold mb-3">{t('homepage.feature3.title')}</h2>
-              <p className="text-gray-600">{t('homepage.feature3.description')}</p>
-            </div>
-          </div>
-        </div>
-      </main>
+      <HeroSection />
     </div>
-  )
-}
+  );
+};
 
-export default HomePage 
+export default HomePage; 
