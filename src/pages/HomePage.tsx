@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../components/Header';
 import HeroSection from '../components/HeroSection';
+import AdventureSection from '../components/AdventureSection';
 import useLanguage from '../hooks/useLanguage';
 import useRouteLanguage from '../hooks/useRouteLanguage';
 
@@ -39,9 +40,10 @@ const HomePage: React.FC = () => {
   }
   
   return (
-    <div className="min-h-screen bg-gray-900">
+    <div className="min-h-screen">
       <Header />
       <HeroSection />
+      <AdventureSection />
     </div>
   );
 };
