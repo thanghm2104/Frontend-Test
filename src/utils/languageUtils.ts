@@ -7,12 +7,16 @@ export type LanguageCode = 'en' | 'fr';
 export const getLanguageFromURL = (): LanguageCode => {
   const path = window.location.pathname;
   
-  // Check if path starts with /fr
-  if (path.startsWith('/fr')) {
+  // Extract the first segment of the path
+  const segments = path.split('/').filter(segment => segment);
+  const firstSegment = segments[0];
+  
+  // Check if the first segment is a valid language code
+  if (firstSegment === 'fr') {
     return 'fr';
   }
   
-  // Default to English
+  // Default to English for all other cases
   return 'en';
 };
 
@@ -24,13 +28,21 @@ export const updateURLLanguage = (language: LanguageCode): void => {
   const currentPath = window.location.pathname;
   const currentSearch = window.location.search;
   
-  // Remove any language prefix from current path
-  let newPath = currentPath.replace(/^\/(en|fr)/, '');
-  if (newPath === '') newPath = '/';
+  // Extract path segments
+  const segments = currentPath.split('/').filter(segment => segment);
   
-  // Add new language prefix
-  const newURL = `/${language}${newPath === '/' ? '' : newPath}${currentSearch}`;
+  // If first segment is a language code, replace it; otherwise, add language as first segment
+  if (segments.length > 0 && (segments[0] === 'en' || segments[0] === 'fr')) {
+    segments[0] = language;
+  } else {
+    segments.unshift(language);
+  }
+  
+  // Reconstruct the path
+  const newPath = `/${segments.join('/')}`;
   
   // Update the URL without reloading the page
-  window.history.pushState({}, '', newURL);
+  window.history.pushState({}, '', `${newPath}${currentSearch}`);
+  
+  console.log(`URL updated to: ${newPath}${currentSearch}`);
 }; 

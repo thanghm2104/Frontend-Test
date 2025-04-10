@@ -27,6 +27,7 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
 
   // Initialize language based on URL when component mounts
   useEffect(() => {
+    console.log('Initializing language from URL:', currentLanguage);
     i18n.changeLanguage(currentLanguage);
   }, []);
 
@@ -45,8 +46,12 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
   }, [currentLanguage, i18n]);
 
   const changeLanguage = (lang: LanguageCode) => {
-    if (lang === currentLanguage) return;
+    if (lang === currentLanguage) {
+      console.log(`Language already set to ${lang}, skipping change`);
+      return;
+    }
     
+    console.log(`Changing language from ${currentLanguage} to ${lang}`);
     setCurrentLanguage(lang);
     i18n.changeLanguage(lang);
     
@@ -56,19 +61,23 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
 
   useEffect(() => {
     const loadContent = async () => {
+      console.log(`Loading content for language: ${currentLanguage}`);
       setIsLoading(true);
       setError(null);
       
       try {
         const response = await fetchPageContent(currentLanguage);
+        console.log(`Content fetch response:`, response.success ? 'Success' : 'Failed');
         if (response.success) {
           setPageContent(response.data);
+          console.log('Page content updated successfully');
         } else {
           setError(response.error || 'Failed to load content');
+          console.error('API Error:', response.error);
         }
       } catch (err) {
         setError('Failed to fetch content');
-        console.error(err);
+        console.error('Fetch error:', err);
       } finally {
         setIsLoading(false);
       }

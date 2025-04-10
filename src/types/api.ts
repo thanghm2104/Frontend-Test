@@ -5,6 +5,7 @@ export interface PageContent {
     ctaText: string;
     backgroundImage: string;
   };
+  banner_menu?: string[];
   services: {
     title: string;
     subtitle?: string;

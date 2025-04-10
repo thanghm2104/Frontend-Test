@@ -24,6 +24,12 @@ function App() {
           <Route path="/:lang" element={<HomePage />} />
           <Route path="/:lang/activities" element={<HomePage />} />
           <Route path="/:lang/contact" element={<HomePage />} />
+          <Route path="/:lang/mountains" element={<HomePage />} />
+          <Route path="/:lang/fishing" element={<HomePage />} />
+          <Route path="/:lang/hunting" element={<HomePage />} />
+          <Route path="/:lang/online-classes" element={<HomePage />} />
+          <Route path="/:lang/ethical-hunting" element={<HomePage />} />
+          <Route path="/:lang/gastronomic-experiences" element={<HomePage />} />
           
           {/* Redirect from / to language route if accessed directly */}
           <Route path="/" element={<Navigate to={`/${getLanguageFromURL()}`} replace />} />
