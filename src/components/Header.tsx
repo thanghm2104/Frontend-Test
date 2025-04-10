@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import useLanguage from '../hooks/useLanguage';
+import { Link } from 'react-router-dom';
 
 const Header: React.FC = () => {
-  const { currentLanguage, changeLanguage } = useLanguage();
+  const { currentLanguage } = useLanguage();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
@@ -16,12 +17,12 @@ const Header: React.FC = () => {
 
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-black/30 backdrop-blur-sm">
-      <div className="container mx-auto px-4 py-4">
+      <div className="container-lg mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
           {/* Logo */}
           <div className="flex items-center">
             <a href={getLangPath('/')} className="text-white text-2xl font-bold tracking-wider">
-              POURVOIRIE
+              POULOGO
             </a>
           </div>
 
@@ -43,20 +44,34 @@ const Header: React.FC = () => {
                   Contact
                 </a>
               </li>
+              <li>
+                <a href={getLangPath('/contact')} className="text-white hover:text-primary transition-colors">
+                  Blog
+                </a>
+              </li>
             </ul>
           </nav>
 
           {/* Right side controls - Language Switcher and Mobile Menu Button */}
           <div className="flex items-center space-x-4">
-            {/* Language Switcher */}
-            <button
-              onClick={() => changeLanguage(currentLanguage === 'en' ? 'fr' : 'en')}
-              className="px-3 py-1 border border-white/50 rounded-md text-white text-sm hover:bg-white/10 transition-colors"
-            >
-              {currentLanguage === 'en' ? 'FR' : 'EN'}
-            </button>
-
             {/* Mobile Menu Toggle */}
+            {/* Social Media Icons */}
+            <div className="hidden md:flex items-center space-x-4">
+              <Link to="/mountains" className="text-white hover:text-primary transition-colors">
+                <img src="/public/icons/Mountains.svg" alt="Mountains" className="h-5 w-5" />
+              </Link>
+              <Link to="/fishing" className="text-white hover:text-primary transition-colors">
+                <img src="/public/icons/Fishing.svg" alt="Fishing" className="h-5 w-5" />
+              </Link>
+              <Link to="/hunting" className="text-white hover:text-primary transition-colors">
+                <img src="/public/icons/Crosshair.svg" alt="Hunting" className="h-5 w-5" />
+              </Link>
+              <Link to="/contact" className="text-white hover:text-primary transition-colors flex justify-center items-center gap-2 h-[40px] px-4 py-2.5 rounded-[100px] bg-[#F2542D]">
+                <span className="hidden lg:inline-block text-white">Contactez-nous</span>
+                <img src="/public/icons/ArrowUpRight.svg" alt="Arrow" className="h-5 w-5" />
+              </Link>
+
+            </div>
             <button 
               className="md:hidden text-white focus:outline-none"
               onClick={toggleMobileMenu}

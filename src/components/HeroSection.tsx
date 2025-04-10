@@ -57,7 +57,7 @@ const HeroSection: React.FC = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 h-full flex items-center justify-center">
+      <div className="relative z-10 h-full flex justify-center items-end pb-[80px]">
         <HeroContent
           title={title}
           subtitle={subtitle}
