@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import useLanguage from '../hooks/useLanguage';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import useLanguage from "../hooks/useLanguage";
 
 interface TabItem {
   id: number;
@@ -11,28 +11,46 @@ interface TabItem {
 }
 
 const HeroContent: React.FC = () => {
-  const { currentLanguage } = useLanguage();
+  const { currentLanguage, pageContent } = useLanguage();
   const [hoveredTab, setHoveredTab] = useState<number | null>(null);
 
   const tabs: TabItem[] = [
     {
       id: 0,
-      icon: <img src="/icons/Mountains.svg" alt="Mountains" className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 transition-all duration-300 group-hover:brightness-[2] group-hover:[filter:invert(36%)_sepia(74%)_saturate(1519%)_hue-rotate(341deg)_brightness(99%)_contrast(88%)]" />,
-      title: "Mountains",
-      path: `/${currentLanguage}/mountains`
+      icon: (
+        <img
+          src="/icons/Mountains.svg"
+          alt="Mountains"
+          className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 transition-all duration-300 group-hover:brightness-[2] group-hover:[filter:invert(36%)_sepia(74%)_saturate(1519%)_hue-rotate(341deg)_brightness(99%)_contrast(88%)]"
+        />
+      ),
+      title: pageContent?.banner_menu?.[0] || "",
+      path: `/${currentLanguage}/mountains`,
     },
     {
       id: 1,
-      icon: <img src="/icons/Fishing.svg" alt="Fishing" className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 transition-all duration-300 group-hover:brightness-[2] group-hover:[filter:invert(36%)_sepia(74%)_saturate(1519%)_hue-rotate(341deg)_brightness(99%)_contrast(88%)]" />,
-      title: "Fishing",
-      path: `/${currentLanguage}/fishing`
+      icon: (
+        <img
+          src="/icons/Fishing.svg"
+          alt="Fishing"
+          className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 transition-all duration-300 group-hover:brightness-[2] group-hover:[filter:invert(36%)_sepia(74%)_saturate(1519%)_hue-rotate(341deg)_brightness(99%)_contrast(88%)]"
+        />
+      ),
+      title: pageContent?.banner_menu?.[1] || "",
+      path: `/${currentLanguage}/fishing`,
     },
     {
       id: 2,
-      icon: <img src="/icons/Crosshair.svg" alt="Hunting" className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 transition-all duration-300 group-hover:brightness-[2] group-hover:[filter:invert(36%)_sepia(74%)_saturate(1519%)_hue-rotate(341deg)_brightness(99%)_contrast(88%)]" />,
-      title: "Hunting",
-      path: `/${currentLanguage}/hunting`
-    }
+      icon: (
+        <img
+          src="/icons/Crosshair.svg"
+          alt="Hunting"
+          className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 transition-all duration-300 group-hover:brightness-[2] group-hover:[filter:invert(36%)_sepia(74%)_saturate(1519%)_hue-rotate(341deg)_brightness(99%)_contrast(88%)]"
+        />
+      ),
+      title: pageContent?.banner_menu?.[2] || "",
+      path: `/${currentLanguage}/hunting`,
+    },
   ];
 
   return (
@@ -53,17 +71,17 @@ const HeroContent: React.FC = () => {
                 initial={{ scaleX: 0, opacity: 0 }}
                 animate={{
                   scaleX: hoveredTab === tab.id ? 1 : 0,
-                  opacity: hoveredTab === tab.id ? 1 : 0
+                  opacity: hoveredTab === tab.id ? 1 : 0,
                 }}
                 transition={{ duration: 0.3 }}
               />
-              
+
               {/* Glow effect */}
               <motion.div
                 className="absolute top-0 left-0 right-0 h-4 sm:h-6 md:h-8 bg-gradient-to-b from-white/20 to-transparent"
                 initial={{ opacity: 0 }}
                 animate={{
-                  opacity: hoveredTab === tab.id ? 1 : 0
+                  opacity: hoveredTab === tab.id ? 1 : 0,
                 }}
                 transition={{ duration: 0.3 }}
               />
@@ -87,11 +105,11 @@ const HeroContent: React.FC = () => {
                   initial={{ y: 20, opacity: 0 }}
                   animate={{
                     y: hoveredTab === tab.id ? 0 : 20,
-                    opacity: hoveredTab === tab.id ? 1 : 0
+                    opacity: hoveredTab === tab.id ? 1 : 0,
                   }}
                   transition={{
                     duration: 0.3,
-                    ease: "easeOut"
+                    ease: "easeOut",
                   }}
                 >
                   {tab.title}
@@ -105,4 +123,4 @@ const HeroContent: React.FC = () => {
   );
 };
 
-export default HeroContent; 
+export default HeroContent;
