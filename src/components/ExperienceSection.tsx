@@ -21,27 +21,27 @@ const ValueItem: React.FC<ValueProps> = ({ icon, title, subtitle }) => {
 const ExperienceSection: React.FC = () => {
   const values = [
     {
-      icon: "/public/icons/auth.svg",
+      icon: "/icons/auth.svg",
       title: "Authenticité",
       subtitle: "Sous-titre"
     },
     {
-      icon: "/public/icons/respect.svg",
+      icon: "/icons/respect.svg",
       title: "Respect",
       subtitle: "Sous-titre"
     },
     {
-      icon: "/public/icons/global.svg",
+      icon: "/icons/global.svg",
       title: "Diversité",
       subtitle: "Sous-titre"
     },
     {
-      icon: "/public/icons/person.svg",
+      icon: "/icons/person.svg",
       title: "Personnalisation",
       subtitle: "Sous-titre"
     },
     {
-      icon: "/public/icons/smile.svg",
+      icon: "/icons/smile.svg",
       title: "Confort",
       subtitle: "Sous-titre"
     }
@@ -70,7 +70,7 @@ const ExperienceSection: React.FC = () => {
         <div className="flex justify-center items-center">
           <div className="rounded-lg overflow-hidden">
             <img 
-              src="/public/images/ice-cream.png" 
+              src="/images/ice-cream.png" 
               alt="Ice cream cone" 
               className="w-[503px] h-[574px] mx-auto"
             />

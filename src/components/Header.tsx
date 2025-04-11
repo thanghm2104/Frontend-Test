@@ -178,21 +178,21 @@ const Header: React.FC = () => {
               <div className="hidden md:flex items-center space-x-2 md:space-x-4 shrink-0">
                 <Link to={getLangPath('/mountains')} className="text-white group transition-colors">
                   <img 
-                    src="/public/icons/Mountains.svg" 
+                    src="/icons/Mountains.svg" 
                     alt="Mountains" 
                     className="h-4 w-4 md:h-5 md:w-5 transition-all duration-300 group-hover:brightness-[2] group-hover:[filter:invert(36%)_sepia(74%)_saturate(1519%)_hue-rotate(341deg)_brightness(99%)_contrast(88%)]" 
                   />
                 </Link>
                 <Link to={getLangPath('/fishing')} className="text-white group transition-colors">
                   <img 
-                    src="/public/icons/Fishing.svg" 
+                    src="/icons/Fishing.svg" 
                     alt="Fishing" 
                     className="h-4 w-4 md:h-5 md:w-5 transition-all duration-300 group-hover:brightness-[2] group-hover:[filter:invert(36%)_sepia(74%)_saturate(1519%)_hue-rotate(341deg)_brightness(99%)_contrast(88%)]" 
                   />
                 </Link>
                 <Link to={getLangPath('/hunting')} className="text-white group transition-colors">
                   <img 
-                    src="/public/icons/Crosshair.svg" 
+                    src="/icons/Crosshair.svg" 
                     alt="Hunting" 
                     className="h-4 w-4 md:h-5 md:w-5 transition-all duration-300 group-hover:brightness-[2] group-hover:[filter:invert(36%)_sepia(74%)_saturate(1519%)_hue-rotate(341deg)_brightness(99%)_contrast(88%)]" 
                   />
@@ -210,7 +210,7 @@ const Header: React.FC = () => {
                   </span>
                 </div>
                 <div className="absolute right-0 top-0 flex items-center justify-center w-8 md:w-10 h-8 md:h-10">
-                  <img src="/public/icons/ArrowUpRight.svg" alt="Arrow" className="h-4 w-4 md:h-5 md:w-5" />
+                  <img src="/icons/ArrowUpRight.svg" alt="Arrow" className="h-4 w-4 md:h-5 md:w-5" />
                 </div>
               </Link>
 
@@ -274,25 +274,25 @@ const Header: React.FC = () => {
               
               {/* Mobile-only Social Media Icons */}
               <li className="pt-2 flex space-x-4">
-                <Link to={getLangPath('/mountains')} className="text-white group transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                <Link to={getLangPath('/mountains')} className="text-white group" onClick={() => setMobileMenuOpen(false)}>
                   <img 
-                    src="/public/icons/Mountains.svg" 
+                    src="/icons/Mountains.svg" 
                     alt="Mountains" 
-                    className="h-5 w-5 transition-all duration-300 group-hover:brightness-[2] group-hover:[filter:invert(36%)_sepia(74%)_saturate(1519%)_hue-rotate(341deg)_brightness(99%)_contrast(88%)]" 
+                    className="h-5 w-5" 
                   />
                 </Link>
-                <Link to={getLangPath('/fishing')} className="text-white group transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                <Link to={getLangPath('/fishing')} className="text-white group" onClick={() => setMobileMenuOpen(false)}>
                   <img 
-                    src="/public/icons/Fishing.svg" 
+                    src="/icons/Fishing.svg" 
                     alt="Fishing" 
-                    className="h-5 w-5 transition-all duration-300 group-hover:brightness-[2] group-hover:[filter:invert(36%)_sepia(74%)_saturate(1519%)_hue-rotate(341deg)_brightness(99%)_contrast(88%)]" 
+                    className="h-5 w-5" 
                   />
                 </Link>
-                <Link to={getLangPath('/hunting')} className="text-white group transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                <Link to={getLangPath('/hunting')} className="text-white group" onClick={() => setMobileMenuOpen(false)}>
                   <img 
-                    src="/public/icons/Crosshair.svg" 
+                    src="/icons/Crosshair.svg" 
                     alt="Hunting" 
-                    className="h-5 w-5 transition-all duration-300 group-hover:brightness-[2] group-hover:[filter:invert(36%)_sepia(74%)_saturate(1519%)_hue-rotate(341deg)_brightness(99%)_contrast(88%)]" 
+                    className="h-5 w-5" 
                   />
                 </Link>
               </li>
@@ -305,7 +305,7 @@ const Header: React.FC = () => {
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   <span className="mr-2">{currentLanguage === 'en' ? 'Contact Us' : 'Contactez-nous'}</span>
-                  <img src="/public/icons/ArrowUpRight.svg" alt="Arrow" className="h-4 w-4" />
+                  <img src="/icons/ArrowUpRight.svg" alt="Arrow" className="h-4 w-4" />
                 </Link>
               </li>
             </ul>

@@ -233,7 +233,7 @@ const CalendarSection: React.FC<CalendarProps> = ({ className }) => {
               </button>
               <button className="px-6 py-2 bg-orange-500 text-white rounded-[33px] hover:bg-orange-600 flex items-center border border-[rgba(86,44,44,0.30)]">
                 Envoyer
-                <img src="/public/icons/send.svg" alt="send" />
+                <img src="/icons/send.svg" alt="send" />
               </button>
             </div>
           </div>

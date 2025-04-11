@@ -63,7 +63,7 @@ const AdventureSection: React.FC = () => {
             >
               <div className="relative">
                 <img 
-                  src={`/public/images/adventure${index+1}.png`} 
+                  src={`/images/adventure${index+1}.png`} 
                   alt={adventure.title}
                   className="w-[397px] h-[397px] object-cover rounded-[8px] transition-transform duration-500 hover:scale-105"
                 />
@@ -89,13 +89,15 @@ const AdventureSection: React.FC = () => {
                 }}>
                   {adventure.description}
                 </p>
-                <a 
-                  href={adventure.link}
-                  className="text-[#562C2C] inline-flex items-center justify-center  font-medium hover:text-primary-dark transition-colors w-[249px] h-[44px] rounded-[333px] border border-[rgba(86, 44, 44, 0.30)]"
-                >
-                  {adventure.cta}
-                  <img src="/public/icons/ArrowUpRightAdventure.svg" alt="Arrow" className="h-5 w-5" />
-                </a>
+                <div className="flex items-center relative z-10">
+                  <a 
+                    href={adventure.link}
+                    className="text-[#562C2C] inline-flex items-center justify-center font-medium hover:text-primary-dark transition-colors w-[249px] h-[44px] rounded-[333px] border border-[rgba(86, 44, 44, 0.30)]"
+                  >
+                    {adventure.cta}
+                    <img src="/icons/ArrowUpRightAdventure.svg" alt="Arrow" className="h-5 w-5" />
+                  </a>
+                </div>
               </div>
             </div>
           ))}

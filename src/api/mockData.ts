@@ -15,21 +15,21 @@ export const mockApiResponseEn: ApiResponse = {
       slides: [
         {
           id: 1,
-          image: "/public/images/carousel1.jpg",
+          image: "/images/carousel1.jpg",
           caseTitle: "Hunting",
           title: "Trophy Hunting",
           text: "Experience trophy hunting with professional guides in pristine wilderness."
         },
         {
           id: 2,
-          image: "/public/images/carousel2.jpg",
+          image: "/images/carousel2.jpg",
           caseTitle: "Fishing",
           title: "Premium Fishing",
           text: "Catch trophy-sized fish in our private lakes with premium equipment provided."
         },
         {
           id: 3,
-          image: "/public/images/carousel3.jpg",
+          image: "/images/carousel3.jpg",
           caseTitle: "Nature Stay",
           title: "Wilderness Retreat",
           text: "Experience the full wilderness experience with comfortable lodging and gourmet meals."
@@ -228,21 +228,21 @@ export const mockApiResponseFr: ApiResponse = {
       slides: [
         {
           id: 1,
-          image: "/public/images/carousel1.jpg",
+          image: "/images/carousel1.jpg",
           caseTitle: "Chasse",
           title: "Chasse aux Trophées",
           text: "Vivez l'expérience de la chasse aux trophées avec des guides professionnels."
         },
         {
           id: 2,
-          image: "/public/images/carousel2.jpg",
+          image: "/images/carousel2.jpg",
           caseTitle: "Pêche",
           title: "Pêche Premium",
           text: "Attrapez des poissons de taille trophée dans nos lacs privés avec équipement fourni."
         },
         {
           id: 3,
-          image: "/public/images/carousel3.jpg",
+          image: "/images/carousel3.jpg",
           caseTitle: "Séjour Nature",
           title: "Retraite Sauvage",
           text: "Vivez l'expérience complète avec un hébergement confortable et des repas gastronomiques."

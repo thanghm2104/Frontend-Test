@@ -212,7 +212,7 @@ function transformApiResponse(apiData: ApiData): PageContent {
         id: index + 1,
         title: item.category || '',
         description: item.description || '',
-        image: `/public/images/service${index + 1}.png`,
+        image: `/images/service${index + 1}.png`,
         packageName: item.tagline || '',
         cta: item.cta || 'Learn More'
       }))
@@ -225,7 +225,7 @@ function transformApiResponse(apiData: ApiData): PageContent {
         id: index + 1,
         title: item.category || '',
         description: item.description || '',
-        image: `/public/images/adventure${index + 1}.png`,
+        image: `/images/adventure${index + 1}.png`,
         tag: item.tagline || '',
         cta: item.cta || 'Learn More',
         link: `/${apiData.language}/${(item.category || '').toLowerCase().replace(/\s+/g, '-')}`
@@ -292,7 +292,7 @@ function transformApiResponse(apiData: ApiData): PageContent {
       viewMore: 'View More',
       slides: (apiData.bloc_3?.cases || []).map((item: ApiItem, index: number) => ({
         id: index + 1,
-        image: `/public/images/carousel${index + 1}.jpg`,
+        image: `/images/carousel${index + 1}.jpg`,
         caseTitle: item.category || '',
         title: item.tagline || '',
         text: item.description || ''

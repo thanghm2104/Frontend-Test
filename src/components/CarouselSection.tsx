@@ -23,7 +23,7 @@ export default function CarouselSection() {
     slides: [
       {
         id: 1,
-        image: "/public/images/food1.png",
+        image: "/images/food1.png",
         caseTitle: currentLanguage === 'en' ? "Case title" : "Titre du cas",
         title: currentLanguage === 'en' ? "Case subtitle" : "Sous-titre du cas",
         text: currentLanguage === 'en' 
@@ -32,7 +32,7 @@ export default function CarouselSection() {
       },
       {
         id: 2,
-        image: "/public/images/food2.png",
+        image: "/images/food2.png",
         caseTitle: currentLanguage === 'en' ? "Case title" : "Titre du cas",
         title: currentLanguage === 'en' ? "Case subtitle" : "Sous-titre du cas",
         text: currentLanguage === 'en'
@@ -41,7 +41,7 @@ export default function CarouselSection() {
       },
       {
         id: 3,
-        image: "/public/images/food3.png",
+        image: "/images/food3.png",
         caseTitle: currentLanguage === 'en' ? "Case title" : "Titre du cas",
         title: currentLanguage === 'en' ? "Case subtitle" : "Sous-titre du cas",
         text: currentLanguage === 'en'
@@ -50,7 +50,7 @@ export default function CarouselSection() {
       },
       {
         id: 4,
-        image: "/public/images/food4.png",
+        image: "/images/food4.png",
         caseTitle: currentLanguage === 'en' ? "Case title" : "Titre du cas",
         title: currentLanguage === 'en' ? "Case subtitle" : "Sous-titre du cas",
         text: currentLanguage === 'en'
@@ -59,7 +59,7 @@ export default function CarouselSection() {
       },
       {
         id: 5,
-        image: "/public/images/food1.png",
+        image: "/images/food1.png",
         caseTitle: currentLanguage === 'en' ? "Case title" : "Titre du cas",
         title: currentLanguage === 'en' ? "Case subtitle" : "Sous-titre du cas",
         text: currentLanguage === 'en'
@@ -96,7 +96,7 @@ export default function CarouselSection() {
             >
               {carouselData.viewMore}
               <motion.img 
-                src="/public/icons/ArrowRight.svg" 
+                src="/icons/ArrowRight.svg" 
                 alt="arrow-right" 
                 className="ml-2 w-4 sm:w-5 transition-transform duration-300"
                 whileHover={{ x: 5, rotate: 45 }}

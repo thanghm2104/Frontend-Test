@@ -6,7 +6,7 @@ const ExploreHeroSection: React.FC = () => {
       {/* Background Image */}
       <div className="absolute inset-0">
         <img 
-          src="/public/images/explore.png" 
+          src="/images/explore.png" 
           alt="Fresh fruits and food items"
           className="w-full h-full object-cover"
         />

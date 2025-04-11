@@ -62,7 +62,7 @@ const HeroSection: React.FC = () => {
       </div>
       <div className="hidden md:absolute bottom-[80px] right-[148px] z-10">
         <button className="flex items-center justify-center w-[56px] h-[56px] p-3 gap-2 rounded-[222px] bg-[#F2542D]">
-          <img src="/public/icons/Chats.svg" alt="Chatbot" className="w-8 h-8" />
+          <img src="/icons/Chats.svg" alt="Chatbot" className="w-8 h-8" />
         </button>
       </div>
     </section>

@@ -11,7 +11,7 @@ const GalleryItem: React.FC<GalleryItemProps> = ({ image, author }) => {
       <img src={image} alt={author} className="w-full aspect-square object-cover" />
       <div className="absolute bottom-0 left-0 right-0 bg-opacity-70 bg-gray-700 px-4 py-2 flex justify-between items-center text-white">
         <div className="flex items-center">
-          <img src="/public/icons/mdi_instagram.svg" alt="user" className="w-[28px] h-[28px]" />
+          <img src="/icons/mdi_instagram.svg" alt="user" className="w-[28px] h-[28px]" />
           <span className="text-lg font-medium ml-2">
             {author}
           </span>
@@ -29,19 +29,19 @@ const GalleryItem: React.FC<GalleryItemProps> = ({ image, author }) => {
 const ImmortalizeSection: React.FC = () => {
   const galleryItems = [
     {
-      image: "/public/images/ImmortalizeSection1.png",
+      image: "/images/ImmortalizeSection1.png",
       author: "Anthony Durand"
     },
     {
-      image: "/public/images/ImmortalizeSection2.png",
+      image: "/images/ImmortalizeSection2.png",
       author: "Anthony Durand"
     },
     {
-      image: "/public/images/ImmortalizeSection3.png",
+      image: "/images/ImmortalizeSection3.png",
       author: "Anthony Durand"
     },
     {
-      image: "/public/images/ImmortalizeSection4.png",
+      image: "/images/ImmortalizeSection4.png",
       author: "Anthony Durand"
     }
   ];
@@ -68,7 +68,7 @@ const ImmortalizeSection: React.FC = () => {
       <div 
         className="relative mb-8 max-w-screen-xl mx-auto"
         style={{
-          backgroundImage: 'url("/public/images/ImmortalizeSectionbg.png")',
+          backgroundImage: 'url("/images/ImmortalizeSectionbg.png")',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           padding: '52px 105px',
@@ -77,7 +77,7 @@ const ImmortalizeSection: React.FC = () => {
       >
         <div className="bg-white rounded-lg overflow-hidden shadow-sm p-4">
           <img 
-            src="/public/images/ImmortalizeSectionbg.png" 
+            src="/images/ImmortalizeSectionbg.png" 
             alt="Beautiful fruit platter" 
             className="w-full object-cover max-h-96"
           />
