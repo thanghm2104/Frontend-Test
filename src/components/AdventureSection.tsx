@@ -13,7 +13,7 @@ interface Adventure {
 }
 
 const AdventureSection: React.FC = () => {
-  const { currentLanguage, pageContent } = useLanguage();
+  const { pageContent } = useLanguage();
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -26,45 +26,9 @@ const AdventureSection: React.FC = () => {
   const activityTitle = pageContent?.bloc_1?.title || 'Discover Culinary Art with CookMaster';
   const activitySubtitle = pageContent?.bloc_1?.subtitle || 'Explore unique experiences to learn, taste, and share';
   
-  // Sample data as fallback
-  const sampleAdventures: Adventure[] = [
-    {
-      id: 1,
-      title: 'Online Classes',
-      description: currentLanguage === 'en' 
-        ? 'Join our interactive online classes to master culinary skills with our chefs.' 
-        : 'Rejoignez nos cours en ligne interactifs pour maîtriser les compétences culinaires avec nos chefs.',
-      image: '/public/images/adventure1.png',
-      tag: currentLanguage === 'en' ? 'Learn from your own kitchen' : 'Apprenez depuis votre cuisine',
-      link: `/${currentLanguage}/online-classes`,
-      cta: currentLanguage === 'en' ? 'See our online classes' : 'Voir nos cours en ligne'
-    },
-    {
-      id: 2,
-      title: 'Ethical Hunting',
-      description: currentLanguage === 'en'
-        ? 'Participate in our in-person workshops to perfect your cooking techniques.'
-        : 'Participez à nos ateliers en personne pour perfectionner vos techniques de cuisine.',
-      image: '/public/images/adventure2.png',
-      tag: currentLanguage === 'en' ? 'Get hands-on experience' : 'Acquérir une expérience pratique',
-      link: `/${currentLanguage}/ethical-hunting`,
-      cta: currentLanguage === 'en' ? 'Discover our workshops' : 'Découvrir nos ateliers'
-    },
-    {
-      id: 3,
-      title: 'Gastronomic Experiences',
-      description: currentLanguage === 'en'
-        ? 'Enjoy exceptional moments around gastronomy with our expert chefs.'
-        : 'Profitez de moments exceptionnels autour de la gastronomie avec nos chefs experts.',
-      image: '/public/images/adventure3.png',
-      tag: currentLanguage === 'en' ? 'A unique culinary journey' : 'Un voyage culinaire unique',
-      link: `/${currentLanguage}/gastronomic-experiences`,
-      cta: currentLanguage === 'en' ? 'Book an experience' : 'Réserver une expérience'
-    }
-  ];
   
   // Use API data if available, otherwise use sample data
-  const adventures: Adventure[] = adventureItems as Adventure[] || sampleAdventures;
+  const adventures: Adventure[] = adventureItems as Adventure[] ;
   
   return (
     <section ref={ref} className="py-16 md:py-24 ">

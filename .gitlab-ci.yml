@@ -1,0 +1,82 @@
+image: node:18-alpine
+
+stages:
+  - setup
+  - test
+  - build
+  - deploy
+
+# Cache dependencies between jobs
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - node_modules/
+
+# Install dependencies
+setup:
+  stage: setup
+  script:
+    - npm ci
+  artifacts:
+    paths:
+      - node_modules/
+
+# Run linting and type checking
+test:
+  stage: test
+  script:
+    - npm run lint
+
+# Build the application
+build:
+  stage: build
+  script:
+    - npm run build
+  artifacts:
+    paths:
+      - dist/
+
+# Build and push Docker image
+build_image:
+  stage: deploy
+  image: docker:20.10.16
+  services:
+    - docker:20.10.16-dind
+  variables:
+    DOCKER_TLS_CERTDIR: "/certs"
+  script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker build -t $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG .
+    - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
+    - |
+      if [ "$CI_COMMIT_BRANCH" = "main" ]; then
+        docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG $CI_REGISTRY_IMAGE:latest
+        docker push $CI_REGISTRY_IMAGE:latest
+      fi
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main" || $CI_COMMIT_BRANCH == "develop"
+      exists:
+        - Dockerfile
+
+# Deploy to staging environment
+deploy_staging:
+  stage: deploy
+  script:
+    - echo "Deploying to staging environment..."
+    # Add your deployment commands here
+  environment:
+    name: staging
+  rules:
+    - if: $CI_COMMIT_BRANCH == "develop"
+
+# Deploy to production environment
+deploy_production:
+  stage: deploy
+  script:
+    - echo "Deploying to production environment..."
+    # Add your production deployment commands here
+  environment:
+    name: production
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
+  when: manual # Requires manual approval 

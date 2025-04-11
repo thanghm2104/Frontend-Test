@@ -63,7 +63,8 @@ const Header: React.FC = () => {
         `Changing to ${newLanguage.toUpperCase()}...`
       );
 
-      await changeLanguage(newLanguage);
+      // Make sure we call changeLanguage without awaiting it since it doesn't return a promise
+      changeLanguage(newLanguage);
       
       toast.success(
         `Successfully changed to ${newLanguage.toUpperCase()}`,

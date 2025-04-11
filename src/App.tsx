@@ -1,11 +1,13 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
 import HomePage from './pages/HomePage'
 import { LanguageProvider } from './context/LanguageContext'
-import { useEffect } from 'react'
-import { getLanguageFromURL } from './utils/languageUtils'
+import { useEffect, useState } from 'react'
+import { getLanguageFromURL, LanguageCode } from './utils/languageUtils'
 import { Toaster } from 'react-hot-toast'
 
 function App() {
+  const [initialLanguage] = useState<LanguageCode>(getLanguageFromURL());
+
   // Redirect root to language-specific route on initial load
   useEffect(() => {
     const path = window.location.pathname
@@ -63,10 +65,10 @@ function App() {
             <Route path="/:lang/gastronomic-experiences" element={<HomePage />} />
             
             {/* Redirect from / to language route if accessed directly */}
-            <Route path="/" element={<Navigate to={`/${getLanguageFromURL()}`} replace />} />
+            <Route path="/" element={<Navigate to={`/${initialLanguage}`} replace />} />
             
             {/* Catch-all route to redirect to language route */}
-            <Route path="*" element={<Navigate to={`/${getLanguageFromURL()}`} replace />} />
+            <Route path="*" element={<Navigate to={`/${initialLanguage}`} replace />} />
           </Routes>
         </div>
       </LanguageProvider>

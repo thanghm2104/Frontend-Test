@@ -19,6 +19,10 @@ i18n
     interpolation: {
       escapeValue: false,
     },
+    react: {
+      useSuspense: false,
+      bindI18n: 'languageChanged'
+    }
   });
 
 export default i18n; 

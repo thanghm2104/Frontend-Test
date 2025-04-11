@@ -27,9 +27,19 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
 
   // Initialize language based on URL when component mounts
   useEffect(() => {
-    console.log('Initializing language from URL:', currentLanguage);
-    i18n.changeLanguage(currentLanguage);
-  }, [currentLanguage, i18n]);
+    const urlLanguage = getLanguageFromURL();
+    console.log('Initializing language from URL:', urlLanguage);
+    
+    // Ensure i18n and state are in sync
+    if (i18n.language !== urlLanguage) {
+      i18n.changeLanguage(urlLanguage);
+    }
+    
+    // Ensure URL and state are in sync
+    if (currentLanguage !== urlLanguage) {
+      setCurrentLanguage(urlLanguage);
+    }
+  }, []); // Only run on mount
 
   // Listen for URL changes (like back button)
   useEffect(() => {
@@ -52,11 +62,12 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
     }
     
     console.log(`Changing language from ${currentLanguage} to ${lang}`);
-    setCurrentLanguage(lang);
+    // First update i18n
     i18n.changeLanguage(lang);
-    
-    // Update URL with new language
+    // Then update URL with new language
     updateURLLanguage(lang);
+    // Finally update the state to trigger re-renders
+    setCurrentLanguage(lang);
   };
 
   useEffect(() => {
