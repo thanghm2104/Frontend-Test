@@ -291,11 +291,11 @@ function transformApiResponse(apiData: ApiData): PageContent {
       title: apiData.bloc_3?.title || 'Featured Experiences',
       viewMore: 'View More',
       slides: (apiData.bloc_3?.cases || []).map((item: ApiItem, index: number) => ({
-        id: index + 1,
-        image: `/images/carousel${index + 1}.jpg`,
-        caseTitle: item.category || '',
-        title: item.tagline || '',
-        text: item.description || ''
+												id: index + 1,
+												image: `/images/food${index + 1}.png`,
+												caseTitle: item.category || '',
+												title: item.tagline || '',
+												text: item.description || ''
       }))
     }
   };

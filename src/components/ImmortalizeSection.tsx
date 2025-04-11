@@ -68,7 +68,7 @@ const ImmortalizeSection: React.FC = () => {
       <div 
         className="relative mb-8 max-w-screen-xl mx-auto"
         style={{
-          backgroundImage: 'url("/images/ImmortalizeSectionbg.png")',
+          backgroundImage: 'url("/images/ImmortalizeSectionBG.png")',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           padding: '52px 105px',
@@ -77,7 +77,7 @@ const ImmortalizeSection: React.FC = () => {
       >
         <div className="bg-white rounded-lg overflow-hidden shadow-sm p-4">
           <img 
-            src="/images/ImmortalizeSectionbg.png" 
+            src="/images/ImmortalizeSectionBG.png" 
             alt="Beautiful fruit platter" 
             className="w-full object-cover max-h-96"
           />
