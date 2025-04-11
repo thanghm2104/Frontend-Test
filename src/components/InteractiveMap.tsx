@@ -146,8 +146,6 @@ const InteractiveMap: React.FC = () => {
 
   // Extract title from bloc_2
   const mapTitle = pageContent?.bloc_2?.title || 'Our Locations';
-  // Use first item from cases array as subtitle if available
-  const mapSubtitle = pageContent?.bloc_2?.cases?.[0] || 'Explore our cooking schools and experience centers around the world';
 
   // Create a map of activity descriptions from bloc_1
   const activityDescriptions = new Map<string, string>();

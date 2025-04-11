@@ -284,6 +284,19 @@ function transformApiResponse(apiData: ApiData): PageContent {
       },
       successMessage: 'Your message has been sent successfully!',
       errorMessage: 'There was an error sending your message. Please try again.'
+    },
+
+    // Add carousel section that was missing
+    carousel: {
+      title: apiData.bloc_3?.title || 'Featured Experiences',
+      viewMore: 'View More',
+      slides: (apiData.bloc_3?.cases || []).map((item: ApiItem, index: number) => ({
+        id: index + 1,
+        image: `/public/images/carousel${index + 1}.jpg`,
+        caseTitle: item.category || '',
+        title: item.tagline || '',
+        text: item.description || ''
+      }))
     }
   };
 } 

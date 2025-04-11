@@ -4,10 +4,37 @@ export const mockApiResponseEn: ApiResponse = {
   success: true,
   data: {
     hero: {
-      title: "Unforgettable Experiences",
-      subtitle: "Discover unique adventures in the heart of Canadian wilderness",
+      title: "Unforgettable Wilderness Experiences",
+      subtitle: "Discover unique adventures in the heart of Canadian nature",
       ctaText: "Explore",
       backgroundImage: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+    },
+    carousel: {
+      title: "Featured Experiences",
+      viewMore: "View More",
+      slides: [
+        {
+          id: 1,
+          image: "/public/images/carousel1.jpg",
+          caseTitle: "Hunting",
+          title: "Trophy Hunting",
+          text: "Experience trophy hunting with professional guides in pristine wilderness."
+        },
+        {
+          id: 2,
+          image: "/public/images/carousel2.jpg",
+          caseTitle: "Fishing",
+          title: "Premium Fishing",
+          text: "Catch trophy-sized fish in our private lakes with premium equipment provided."
+        },
+        {
+          id: 3,
+          image: "/public/images/carousel3.jpg",
+          caseTitle: "Nature Stay",
+          title: "Wilderness Retreat",
+          text: "Experience the full wilderness experience with comfortable lodging and gourmet meals."
+        }
+      ]
     },
     services: {
       title: "Our Packages",
@@ -122,38 +149,34 @@ export const mockApiResponseEn: ApiResponse = {
       errorMessage: "There was an error sending your message. Please try again."
     },
     footer: {
-      address: "123 Wilderness Road, Quebec, Canada, G0A 1V0",
-      phone: "+1 (555) 123-4567",
-      email: "info@pourvoirie.example.com",
-      menuItems: [
+      address: {
+        name: "Wilderness Lodge",
+        location: "123 Wilderness Road, Quebec, Canada, G0A 1V0",
+        phone: "+1 (555) 123-4567"
+      },
+      links: [
         {
-          id: 1,
-          text: "Home",
+          name: "Home",
           url: "/"
         },
         {
-          id: 2,
-          text: "About Us",
+          name: "About Us",
           url: "/about"
         },
         {
-          id: 3,
-          text: "Services",
+          name: "Services",
           url: "/services"
         },
         {
-          id: 4,
-          text: "Gallery",
+          name: "Gallery",
           url: "/gallery"
         },
         {
-          id: 5,
-          text: "Blog",
+          name: "Blog",
           url: "/blog"
         },
         {
-          id: 6,
-          text: "Contact",
+          name: "Contact",
           url: "/contact"
         }
       ]
@@ -198,6 +221,33 @@ export const mockApiResponseFr: ApiResponse = {
       subtitle: "Découvrez des aventures uniques au cœur de la nature canadienne",
       ctaText: "Explorer",
       backgroundImage: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+    },
+    carousel: {
+      title: "Expériences Vedettes",
+      viewMore: "Voir Plus",
+      slides: [
+        {
+          id: 1,
+          image: "/public/images/carousel1.jpg",
+          caseTitle: "Chasse",
+          title: "Chasse aux Trophées",
+          text: "Vivez l'expérience de la chasse aux trophées avec des guides professionnels."
+        },
+        {
+          id: 2,
+          image: "/public/images/carousel2.jpg",
+          caseTitle: "Pêche",
+          title: "Pêche Premium",
+          text: "Attrapez des poissons de taille trophée dans nos lacs privés avec équipement fourni."
+        },
+        {
+          id: 3,
+          image: "/public/images/carousel3.jpg",
+          caseTitle: "Séjour Nature",
+          title: "Retraite Sauvage",
+          text: "Vivez l'expérience complète avec un hébergement confortable et des repas gastronomiques."
+        }
+      ]
     },
     services: {
       title: "Nos Forfaits",
@@ -312,38 +362,34 @@ export const mockApiResponseFr: ApiResponse = {
       errorMessage: "Une erreur s'est produite lors de l'envoi de votre message. Veuillez réessayer."
     },
     footer: {
-      address: "123 Chemin Sauvage, Québec, Canada, G0A 1V0",
-      phone: "+1 (555) 123-4567",
-      email: "info@pourvoirie.example.com",
-      menuItems: [
+      address: {
+        name: "Wilderness Lodge",
+        location: "123 Wilderness Road, Quebec, Canada, G0A 1V0",
+        phone: "+1 (555) 123-4567"
+      },
+      links: [
         {
-          id: 1,
-          text: "Accueil",
+          name: "Accueil",
           url: "/"
         },
         {
-          id: 2,
-          text: "À Propos",
+          name: "À propos",
           url: "/about"
         },
         {
-          id: 3,
-          text: "Services",
+          name: "Services",
           url: "/services"
         },
         {
-          id: 4,
-          text: "Galerie",
+          name: "Galerie",
           url: "/gallery"
         },
         {
-          id: 5,
-          text: "Blog",
+          name: "Blog",
           url: "/blog"
         },
         {
-          id: 6,
-          text: "Contact",
+          name: "Contact",
           url: "/contact"
         }
       ]
