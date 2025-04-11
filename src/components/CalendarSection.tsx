@@ -1,12 +1,15 @@
-import  { useState } from 'react';
+import React, { useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
-// Define type for date
 type DateType = Date | null;
 
-const CalendarSection = () => {
+interface CalendarProps {
+  className?: string;
+}
+
+const CalendarSection: React.FC<CalendarProps> = ({ className }) => {
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -100,7 +103,7 @@ const CalendarSection = () => {
   };
 
   return (
-    <section ref={ref} className="py-16 bg-gray-50">
+    <section ref={ref} className={`py-16 bg-gray-50 ${className || ''}`}>
       <div className="container mx-auto px-4">
         <div className={`text-center mb-12 transition-all duration-700 transform ${
           inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'

@@ -29,7 +29,7 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
   useEffect(() => {
     console.log('Initializing language from URL:', currentLanguage);
     i18n.changeLanguage(currentLanguage);
-  }, []);
+  }, [currentLanguage, i18n]);
 
   // Listen for URL changes (like back button)
   useEffect(() => {
@@ -43,7 +43,7 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
 
     window.addEventListener('popstate', handleLocationChange);
     return () => window.removeEventListener('popstate', handleLocationChange);
-  }, [currentLanguage, i18n]);
+  }, [currentLanguage, i18n, setCurrentLanguage]);
 
   const changeLanguage = (lang: LanguageCode) => {
     if (lang === currentLanguage) {

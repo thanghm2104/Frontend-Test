@@ -204,6 +204,18 @@ export interface PageContent {
       url: string;
     }[];
   };
+  
+  carousel: {
+    title: string;
+    viewMore: string;
+    slides: Array<{
+      id: number;
+      image: string;
+      caseTitle: string;
+      title: string;
+      text: string;
+    }>;
+  };
 }
 
 export interface ApiResponse {

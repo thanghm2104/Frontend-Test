@@ -32,10 +32,9 @@ const HeroSection: React.FC = () => {
     return <div className="h-screen bg-gray-900"></div>;
   }
 
-  const { title, subtitle, ctaText } = pageContent.hero;
 
   return (
-    <section className="relative h-screen w-full overflow-hidden">
+    <section className="relative h-screen  overflow-hidden">
       {/* Video Background */}
       <div className="absolute inset-0 z-0">
         <video
@@ -57,14 +56,11 @@ const HeroSection: React.FC = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 h-full flex justify-center items-end pb-[80px]">
+      <div className="relative z-10 h-full flex justify-center items-end">
         <HeroContent
-          title={title}
-          subtitle={subtitle}
-          ctaText={ctaText}
         />
       </div>
-      <div className="fixed bottom-[80px] right-[148px] z-10">
+      <div className="hidden md:absolute bottom-[80px] right-[148px] z-10">
         <button className="flex items-center justify-center w-[56px] h-[56px] p-3 gap-2 rounded-[222px] bg-[#F2542D]">
           <img src="/public/icons/Chats.svg" alt="Chatbot" className="w-8 h-8" />
         </button>

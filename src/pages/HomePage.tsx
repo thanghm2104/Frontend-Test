@@ -7,7 +7,7 @@ import useLanguage from '../hooks/useLanguage';
 import useRouteLanguage from '../hooks/useRouteLanguage';
 import Footer from '../components/Footer';
 import CalendarSection from '@/components/CalendarSection';
-import FoodCarousel from '@/components/CarouselSection';
+import CarouselSection from '@/components/CarouselSection';
 import ExperienceSection from '@/components/ExperienceSection';
 import ImmortalizeSection from '@/components/ImmortalizeSection';
 import ExploreHeroSection from '@/components/ExploreHeroSection';
@@ -53,7 +53,7 @@ const HomePage: React.FC = () => {
       <AdventureSection />
       <InteractiveMap />
       <CalendarSection />
-      <FoodCarousel />
+      <CarouselSection />
       <ExperienceSection />
       <ImmortalizeSection />
       <ExploreHeroSection />
