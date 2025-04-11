@@ -15,12 +15,3 @@ body {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
 }
-
-/* CookMaster specific styles */
-.text-cookmaster-title {
-  @apply text-cookmaster-red font-semibold uppercase;
-}
-
-.text-cookmaster-subtitle {
-  @apply text-cookmaster-brown font-normal;
-}
